@@ -1,0 +1,104 @@
+{
+  "policy": {
+    "sid1": 100,
+    "kor": "정치",
+    "sub_url": {
+      "blue_house": {
+        "sid2": 264,
+        "kor": "국회의사당"
+      },
+      "national_assembly": {
+        "sid2": 265,
+        "kor": "국회/정당"
+      },
+      "north_korea": {
+        "sid2": 268,
+        "kor": "북한"
+      },
+      "administration": {
+        "sid2": 266,
+        "kor": "행정"
+      },
+      "national_defense": {
+        "sid2": 267,
+        "kor": "국방/외교"
+      },
+      "general_politics": {
+        "sid2": 269,
+        "kor": "정치일반"
+      }
+    }
+  },
+  "economy": {
+	"sid1": 101,
+	"kor": "경제",
+    "sub_url": {
+		"finance": {
+       "sid2": 259,
+       "kor": "금융"
+     },
+     "stock": {
+       "sid2": 258,
+       "kor": "증권"
+     },
+     "industry_business": {
+       "sid2": 261,
+       "kor": "산업/재계"
+     },
+     "medium_venture": {
+       "sid2": 271,
+       "kor": "중기/벤쳐"
+     },
+     "real_estate": {
+       "sid2": 260,
+       "kor": "부동산"
+     },
+      "global_economy": {
+       "sid2": 262,
+       "kor": "글로벌경제"
+     },
+     "life_economy": {
+       "sid2": 360,
+       "kor": "생활경제"
+     }
+    }
+  },
+  "society": {
+	"sid1": 102,
+	"kor": "사회",
+    "sub_url": {
+	 "accident": {
+       "sid2": 249,
+       "kor": "사건사고"
+     },
+     "education": {
+       "sid2": 250,
+       "kor": "교육"
+     },
+     "labor": {
+       "sid2": 251,
+       "kor": "노동"
+     },
+     "press": {
+       "sid2": 254,
+       "kor": "언론"
+     },
+     "human_rights_welfare": {
+       "sid2": "59b",
+       "kor": "인권/복지"
+     },
+      "food_medical": {
+       "sid2": 255,
+       "kor": "식품/의료"
+     },
+     "area": {
+       "sid2": 256,
+       "kor": "지역"
+     },
+	 "character": {
+       "sid2": 276,
+       "kor": "인물"
+     }
+    }
+  }
+}
