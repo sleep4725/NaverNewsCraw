@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import os, sys
 import json
 import requests
@@ -42,23 +40,10 @@ class NewsUrlGet(UrlHeader):
                 
                 for page in range(1, 10):
                     url = news_object.url + "&date={_arg_day_}&page={_arg_page_}".format(_arg_day_= self.target_day, _arg_page_ = page)
-                    f.write(url + "\n")
+                    data = json.dumps({"url": url, "k": k, "subk": subk}, ensure_ascii=False)
+                    f.write(data + "\n")
                 
                 f.close()
-
-    def data_bulk_indexing(self):
-        """
-
-        :return:
-        """
-        try:
-
-            print(len(self.es_action_list))
-            bulk(client= self.es_client, actions=self.es_action_list)
-        except:
-            pass
-        else:
-            print("적재 성공 !!")
 
     @classmethod
     def ret_url_config(cls)->dict:

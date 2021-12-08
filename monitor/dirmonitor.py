@@ -4,9 +4,8 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-sys.path.append(os.environ.get("PROJ_ROOT"))
+sys.path.insert(1, os.environ.get("PROJ_ROOT"))
 from urlReq import news_data_get
-#from consumer.t import f 
 
 ## ===================
 # 2021-12-09
