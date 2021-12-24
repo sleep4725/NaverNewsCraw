@@ -290,7 +290,9 @@ class Nature:
                 plaintext_index,_ = self.plaintext_index_move(plaintext_index)
                 mecab_index += 1
                 self.compound_noun = ""
-    
+        
+        return self.compound_noun_list
+
     def result_compound_list(self):
         """
         """
@@ -302,7 +304,9 @@ class Nature:
 ## MAIN FUNCTION START 
 ## ------------------------------
 ##################################
+"""
 if __name__ == "__main__":
     o = Nature(plaintext=p)
     o.get_nng()
     o.result_compound_list()
+"""

@@ -5,6 +5,6 @@
 class UrlHeader:
 
     def __init__(self):
-        self._headers = {
+        self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
         }

@@ -26,14 +26,14 @@ class NewsDataGet(UrlHeader):
 
     def data_bulk_indexing(self):
         
-        try:
+        #try:
         
-            print(len(self.es_action_list))
-            bulk(client= self.es_client, actions=self.es_action_list)
-        except:
-            pass
-        else:
-            print("적재 성공 !!")
+        #print("데이터 적재 건 : {}".format(len(self.es_action_list)))
+        bulk(client= self.es_client, actions=self.es_action_list)
+        #except:
+        #    pass
+        #else:
+        #    print("{} 건 적재 성공 !!".format(len(self.es_action_list)))
 
 
     def news_data_get(self):
@@ -48,9 +48,11 @@ class NewsDataGet(UrlHeader):
             data = json.loads(url)
 
             url = data["url"].rstrip("\n")
-            response = requests.get(url, headers = self._headers)
-            print(response.status_code) 
+            response = requests.get(url, headers = self.headers)
+            #print(response.status_code) 
             if response.status_code == 200:
+                
+                print("requests url: {}".format(url))
                 
                 try:
                     bs_object = BeautifulSoup(response.text, "html.parser")
@@ -69,22 +71,39 @@ class NewsDataGet(UrlHeader):
                                                       article_category_lv1_kor=self.config[data["k"]]["kor"],
                                                       article_category_lv2_kor=self.config[data["k"]]["sub_url"][data["subk"]]["kor"])
                                     
-                                    c.get_news_data()
-                                    self.es_action_list.append(
-                                       {
-                                          "_index": self.es_index,
-                                          "_source": c.data
-                                       })
+                                    print("**********************************************************************")
+                                    
+                                    try:
+                                        c.get_news_data()
+                                    except:
+                                        print("1231231231231231231231231312")
+                                    else:
+                                        self.es_action_list.append(
+                                           {
+                                              "_index": self.es_index,
+                                              "_source": c.data
+                                           })
+
+                                        print(self.es_action_list)
+
+                                else:
+                                    print("check !!")
                               
                             if self.es_action_list:
-                                print("데이터 적재 시작")
+                                print("{} 건 데이터 적재 시작".format(len(self.es_action_list)))
                                 self.data_bulk_indexing()
                                 self.es_action_list.clear()
-                    except:
-                        print(url)
-                        pass
+                            else:
+                                print("적재할 데이터 건 수가 없습니다.")
+                        else:
+                            print("li 필드가 없습니다. !!")
                     else:
-                        print("데이터 적재 성공!!")
+                        print("content tag error !! {}".format(url))
+                except:
+                    print(url)
+                    pass
+                else:
+                    print("데이터 적재 성공!!")
             else:
                 print(response.status_code)
     @classmethod

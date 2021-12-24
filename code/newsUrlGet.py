@@ -6,7 +6,7 @@ import pandas
 import datetime, time
 from elasticsearch.helpers import bulk
 
-sys.path.append(os.environ.get("PROJ_ROOT"))
+sys.path.insert(0, os.environ.get("PROJ_ROOT"))
 
 from common.template import NewsTemplate
 from common.urlheader import UrlHeader
@@ -28,7 +28,7 @@ class NewsUrlGet(UrlHeader):
 
     def news_data_req(self):
         """
-
+        :param: 
         :return:
         """
         key = [k for k in self.config.keys()]
@@ -38,8 +38,25 @@ class NewsUrlGet(UrlHeader):
                 
                 f = open(f"/home/kim/my_proj/file/naver_news_{k}_{subk}_{self.file_generate_date}.log", "a", encoding="utf-8")
                 
-                for page in range(1, 10):
+                for page in range(1, 2):
                     url = news_object.url + "&date={_arg_day_}&page={_arg_page_}".format(_arg_day_= self.target_day, _arg_page_ = page)
+                    
+                    """
+                    resp = requests.get(url, headers=self.headers)
+                    if resp.status_code == 200:
+                        bs_object = BeautifulSoup(resp.text, "html.parser")
+                        ul_headline = bs_object.select_one("div#main_content > div.list_body.newsflash_body > ul.type06_headline")
+                        try:
+
+                            li_tag_list = ul_headline.select("li")
+                        except AttributeError as err:
+                            print(err)
+                            pass
+                        else:
+                            for li in li_tag_list:
+                                a_tag = li.select_one("dl > dt > a")
+                                href_url = a_tag.attrs["href"]"""
+                    
                     data = json.dumps({"url": url, "k": k, "subk": subk}, ensure_ascii=False)
                     f.write(data + "\n")
                 
@@ -48,7 +65,7 @@ class NewsUrlGet(UrlHeader):
     @classmethod
     def ret_url_config(cls)->dict:
         """
-
+        :param:
         :return:
         """
         config = "../config/url_config.json"

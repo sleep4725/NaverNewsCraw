@@ -1,0 +1,525 @@
+ 
+ -------------- celery@localhost.localdomain v5.1.2 (sun-harmonics)
+--- ***** ----- 
+-- ******* ---- Linux-3.10.0-1160.el7.x86_64-x86_64-with-centos-7.9.2009-Core 2021-12-24 13:45:14
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         news_data_get:0x7efffbc9de80
+- ** ---------- .> transport:   amqp://kjh:**@localhost:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . urlReq.news_data_get
+
+[2021-12-24 13:45:14,379: INFO/MainProcess] Connected to amqp://kjh:**@127.0.0.1:5672//
+[2021-12-24 13:45:14,406: INFO/MainProcess] mingle: searching for neighbors
+[2021-12-24 13:45:15,440: INFO/MainProcess] mingle: all alone
+[2021-12-24 13:45:15,457: INFO/MainProcess] celery@localhost.localdomain ready.
+[2021-12-24 13:45:15,458: INFO/MainProcess] Task urlReq.news_data_get[8ba8b357-f9df-4ac1-b6c0-bb7b6dda03d1] received
+[2021-12-24 13:45:15,459: INFO/MainProcess] Task urlReq.news_data_get[39d45ef6-7906-4140-a903-f48f2abbe8dd] received
+[2021-12-24 13:45:15,460: INFO/MainProcess] Task urlReq.news_data_get[e6592927-c9cb-44db-9c58-836029b5b880] received
+[2021-12-24 13:45:15,460: INFO/MainProcess] Task urlReq.news_data_get[f311635e-8dc1-470d-a25a-fcfc982558b2] received
+[2021-12-24 13:45:15,460: INFO/MainProcess] Task urlReq.news_data_get[008c4735-0e15-4c6f-a80f-8fcdfd98a9d7] received
+[2021-12-24 13:45:15,461: INFO/MainProcess] Task urlReq.news_data_get[d5d0ca2f-047e-4499-bc29-bc53db3b94cd] received
+[2021-12-24 13:45:15,461: INFO/MainProcess] Task urlReq.news_data_get[28837dda-1a19-41ee-a922-c054a45cd122] received
+[2021-12-24 13:45:15,461: INFO/MainProcess] Task urlReq.news_data_get[c383bc84-93ec-4f68-ac57-efab5cdad092] received
+[2021-12-24 13:45:15,575: ERROR/ForkPoolWorker-1] Task urlReq.news_data_get[39d45ef6-7906-4140-a903-f48f2abbe8dd] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_policy_administration_20211208235254.log'
+[2021-12-24 13:45:15,578: INFO/MainProcess] Task urlReq.news_data_get[d939ff24-2053-4c48-9279-c75c06e03d17] received
+[2021-12-24 13:45:15,581: INFO/MainProcess] Task urlReq.news_data_get[853dc749-fdae-4301-9efa-7251a89b3621] received
+[2021-12-24 13:45:15,584: ERROR/ForkPoolWorker-2] Task urlReq.news_data_get[8ba8b357-f9df-4ac1-b6c0-bb7b6dda03d1] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_policy_north_korea_20211208235254.log'
+[2021-12-24 13:45:15,791: ERROR/ForkPoolWorker-3] Task urlReq.news_data_get[f311635e-8dc1-470d-a25a-fcfc982558b2] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_policy_general_politics_20211208235254.log'
+[2021-12-24 13:45:15,796: INFO/MainProcess] Task urlReq.news_data_get[4c20a7bb-1f07-4cca-8c7d-d20940e7179f] received
+[2021-12-24 13:45:15,817: INFO/MainProcess] Task urlReq.news_data_get[edf1ac85-f73d-4e70-a87f-97c88bfe44df] received
+[2021-12-24 13:45:15,825: ERROR/ForkPoolWorker-4] Task urlReq.news_data_get[008c4735-0e15-4c6f-a80f-8fcdfd98a9d7] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_finance_20211208235254.log'
+[2021-12-24 13:45:16,007: ERROR/ForkPoolWorker-5] Task urlReq.news_data_get[d5d0ca2f-047e-4499-bc29-bc53db3b94cd] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_stock_20211208235254.log'
+[2021-12-24 13:45:16,012: INFO/MainProcess] Task urlReq.news_data_get[6bc7d380-5389-45fb-9d5a-6a36d5ab257e] received
+[2021-12-24 13:45:16,025: ERROR/ForkPoolWorker-6] Task urlReq.news_data_get[28837dda-1a19-41ee-a922-c054a45cd122] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_industry_business_20211208235254.log'
+[2021-12-24 13:45:16,028: INFO/MainProcess] Task urlReq.news_data_get[da8921e6-3943-4441-b3fb-bef30a6dfd2f] received
+[2021-12-24 13:45:16,222: ERROR/ForkPoolWorker-7] Task urlReq.news_data_get[c383bc84-93ec-4f68-ac57-efab5cdad092] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_medium_venture_20211208235254.log'
+[2021-12-24 13:45:16,227: INFO/MainProcess] Task urlReq.news_data_get[31cfcfe8-04af-4b8a-9080-be74447ef56a] received
+[2021-12-24 13:45:16,239: ERROR/ForkPoolWorker-8] Task urlReq.news_data_get[d939ff24-2053-4c48-9279-c75c06e03d17] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_real_estate_20211208235254.log'
+[2021-12-24 13:45:16,242: INFO/MainProcess] Task urlReq.news_data_get[7a906c15-8ff5-491b-a570-16c708ba3ef4] received
+[2021-12-24 13:45:16,430: ERROR/ForkPoolWorker-9] Task urlReq.news_data_get[853dc749-fdae-4301-9efa-7251a89b3621] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_global_economy_20211208235254.log'
+[2021-12-24 13:45:16,434: INFO/MainProcess] Task urlReq.news_data_get[40b6087b-9699-4426-9a2d-8e08ea5f573b] received
+[2021-12-24 13:45:16,445: ERROR/ForkPoolWorker-10] Task urlReq.news_data_get[4c20a7bb-1f07-4cca-8c7d-d20940e7179f] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_economy_life_economy_20211208235254.log'
+[2021-12-24 13:45:16,448: INFO/MainProcess] Task urlReq.news_data_get[c3fac766-788b-4b0e-8fe4-47b4ecac3017] received
+[2021-12-24 13:45:16,635: ERROR/ForkPoolWorker-11] Task urlReq.news_data_get[edf1ac85-f73d-4e70-a87f-97c88bfe44df] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_accident_20211208235254.log'
+[2021-12-24 13:45:16,641: INFO/MainProcess] Task urlReq.news_data_get[37dbeb1b-cc00-4864-94c9-3366b9713529] received
+[2021-12-24 13:45:16,658: ERROR/ForkPoolWorker-12] Task urlReq.news_data_get[6bc7d380-5389-45fb-9d5a-6a36d5ab257e] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_education_20211208235254.log'
+[2021-12-24 13:45:16,663: INFO/MainProcess] Task urlReq.news_data_get[857c42a3-0958-42be-b495-c8cf87d1d07b] received
+[2021-12-24 13:45:16,852: ERROR/ForkPoolWorker-13] Task urlReq.news_data_get[da8921e6-3943-4441-b3fb-bef30a6dfd2f] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_labor_20211208235254.log'
+[2021-12-24 13:45:16,857: INFO/MainProcess] Task urlReq.news_data_get[4d948cbd-fd1a-43bf-adb9-c2715256fb42] received
+[2021-12-24 13:45:16,870: ERROR/ForkPoolWorker-14] Task urlReq.news_data_get[31cfcfe8-04af-4b8a-9080-be74447ef56a] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_press_20211208235254.log'
+[2021-12-24 13:45:16,873: INFO/MainProcess] Task urlReq.news_data_get[34dd88ac-2562-4eae-b776-810f236298e3] received
+[2021-12-24 13:45:17,062: ERROR/ForkPoolWorker-15] Task urlReq.news_data_get[7a906c15-8ff5-491b-a570-16c708ba3ef4] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_human_rights_welfare_20211208235254.log'
+[2021-12-24 13:45:17,067: INFO/MainProcess] Task urlReq.news_data_get[ae6ce216-d9ba-44f3-8f9a-240252d4ca55] received
+[2021-12-24 13:45:17,080: ERROR/ForkPoolWorker-16] Task urlReq.news_data_get[40b6087b-9699-4426-9a2d-8e08ea5f573b] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_food_medical_20211208235254.log'
+[2021-12-24 13:45:17,083: INFO/MainProcess] Task urlReq.news_data_get[ae448d5f-796e-48ed-8fcd-504897c62abd] received
+[2021-12-24 13:45:17,275: ERROR/ForkPoolWorker-17] Task urlReq.news_data_get[c3fac766-788b-4b0e-8fe4-47b4ecac3017] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_area_20211208235254.log'
+[2021-12-24 13:45:17,281: INFO/MainProcess] Task urlReq.news_data_get[23895176-310e-4521-be97-bd89e9688bbd] received
+[2021-12-24 13:45:17,295: ERROR/ForkPoolWorker-18] Task urlReq.news_data_get[37dbeb1b-cc00-4864-94c9-3366b9713529] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_society_character_20211208235254.log'
+[2021-12-24 13:45:17,298: INFO/MainProcess] Task urlReq.news_data_get[bb2864aa-7ab4-49f8-897d-a76c7af1766f] received
+[2021-12-24 13:45:17,499: INFO/MainProcess] Task urlReq.news_data_get[69ae2c63-fb82-4920-bb85-0ef97cbda1ce] received
+[2021-12-24 13:45:17,512: ERROR/ForkPoolWorker-20] Task urlReq.news_data_get[e6592927-c9cb-44db-9c58-836029b5b880] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 450, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/kim/.local/lib/python3.6/site-packages/celery/app/trace.py", line 731, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/kim/my_proj/monitor/urlReq.py", line 21, in news_data_get
+    o.news_data_get()
+  File "/home/kim/my_proj/monitor/newsDataGet.py", line 42, in news_data_get
+    f = open(self.filepath, "r", encoding="utf-8")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kim/my_proj/file/naver_news_policy_national_defense_20211208235254.log'
+[2021-12-24 13:45:17,515: INFO/MainProcess] Task urlReq.news_data_get[ef9c080a-2453-4cdd-bebc-1fd1728c7b2d] received
+[2021-12-24 13:45:17,687: INFO/MainProcess] Task urlReq.news_data_get[47733d53-50ca-47a3-ad78-65c5936656ba] received
+[2021-12-24 13:45:17,824: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:17,825: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:17,978: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:17,980: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:18,746: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=1
+[2021-12-24 13:45:18,747: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:18,884: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=1
+[2021-12-24 13:45:18,884: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:19,048: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:19,048: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:19,194: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:19,195: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:19,761: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=2
+[2021-12-24 13:45:19,761: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:20,027: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=2
+[2021-12-24 13:45:20,027: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:20,049: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:20,049: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:20,331: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:20,331: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:20,818: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=3
+[2021-12-24 13:45:20,818: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:21,048: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=3
+[2021-12-24 13:45:21,048: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:21,119: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:21,119: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:21,343: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:21,344: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:21,887: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=4
+[2021-12-24 13:45:21,887: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:22,177: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:22,177: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:22,299: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=4
+[2021-12-24 13:45:22,299: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:22,598: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:22,598: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:22,939: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=5
+[2021-12-24 13:45:22,939: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:23,457: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=5
+[2021-12-24 13:45:23,457: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:23,525: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:23,525: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:23,715: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:23,716: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:24,124: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=6
+[2021-12-24 13:45:24,124: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:24,401: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:24,401: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:24,743: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=6
+[2021-12-24 13:45:24,743: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:25,189: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:25,189: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:25,291: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=7
+[2021-12-24 13:45:25,291: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:25,567: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:25,567: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:25,942: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=7
+[2021-12-24 13:45:25,942: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:26,204: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=8
+[2021-12-24 13:45:26,204: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:26,211: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:26,211: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:26,513: WARNING/ForkPoolWorker-19] 200
+[2021-12-24 13:45:26,513: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:26,957: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=8
+[2021-12-24 13:45:26,957: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:27,236: WARNING/ForkPoolWorker-21] 200
+[2021-12-24 13:45:27,237: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:27,257: WARNING/ForkPoolWorker-19] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=264&date=20211223&page=9
+[2021-12-24 13:45:27,257: WARNING/ForkPoolWorker-19] 
+
+[2021-12-24 13:45:27,258: INFO/ForkPoolWorker-19] Task urlReq.news_data_get[857c42a3-0958-42be-b495-c8cf87d1d07b] succeeded in 9.773950690999982s: None
+[2021-12-24 13:45:27,464: INFO/MainProcess] Task urlReq.news_data_get[d58d6b4b-8818-4c93-a352-a87a9dd08912] received
+[2021-12-24 13:45:27,760: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:27,761: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:28,130: WARNING/ForkPoolWorker-21] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=265&date=20211223&page=9
+[2021-12-24 13:45:28,130: WARNING/ForkPoolWorker-21] 
+
+[2021-12-24 13:45:28,131: INFO/ForkPoolWorker-21] Task urlReq.news_data_get[4d948cbd-fd1a-43bf-adb9-c2715256fb42] succeeded in 10.455640468999945s: None
+[2021-12-24 13:45:28,306: INFO/MainProcess] Task urlReq.news_data_get[bb2c69f6-c9be-469a-a180-18bbffa88fdf] received
+[2021-12-24 13:45:28,551: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=1
+[2021-12-24 13:45:28,552: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:28,591: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:28,592: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:28,830: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:28,831: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:29,325: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=1
+[2021-12-24 13:45:29,325: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:29,506: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=2
+[2021-12-24 13:45:29,507: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:29,647: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:29,647: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:29,923: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:29,924: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:30,347: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=2
+[2021-12-24 13:45:30,347: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:30,626: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=3
+[2021-12-24 13:45:30,626: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:30,653: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:30,654: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:30,902: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:30,902: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:31,357: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=3
+[2021-12-24 13:45:31,357: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:31,524: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=4
+[2021-12-24 13:45:31,524: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:31,635: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:31,635: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:31,800: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:31,800: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:32,369: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=4
+[2021-12-24 13:45:32,369: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:32,465: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=5
+[2021-12-24 13:45:32,467: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:32,633: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:32,634: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:32,755: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:32,755: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:33,465: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=6
+[2021-12-24 13:45:33,466: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:33,499: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=5
+[2021-12-24 13:45:33,500: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:33,764: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:33,764: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:33,776: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:33,777: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:34,632: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=6
+[2021-12-24 13:45:34,632: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:34,642: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=7
+[2021-12-24 13:45:34,642: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:34,915: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:34,916: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:34,951: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:34,951: WARNING/ForkPoolWorker-23] 
+
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
+
+worker: Cold shutdown (MainProcess)
+[2021-12-24 13:45:35,633: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=8
+[2021-12-24 13:45:35,633: WARNING/ForkPoolWorker-22] 
+
+
+worker: Cold shutdown (MainProcess)
+[2021-12-24 13:45:35,870: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=7
+[2021-12-24 13:45:35,870: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:35,989: WARNING/ForkPoolWorker-22] 200
+[2021-12-24 13:45:35,989: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:36,157: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:36,157: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:36,811: WARNING/ForkPoolWorker-22] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=268&date=20211223&page=9
+[2021-12-24 13:45:36,811: WARNING/ForkPoolWorker-22] 
+
+[2021-12-24 13:45:36,812: INFO/ForkPoolWorker-22] Task urlReq.news_data_get[34dd88ac-2562-4eae-b776-810f236298e3] succeeded in 9.361170522999828s: None
+[2021-12-24 13:45:37,077: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=8
+[2021-12-24 13:45:37,077: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:37,363: WARNING/ForkPoolWorker-23] 200
+[2021-12-24 13:45:37,363: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:38,208: WARNING/ForkPoolWorker-23] https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=100&sid2=266&date=20211223&page=9
+[2021-12-24 13:45:38,208: WARNING/ForkPoolWorker-23] 
+
+[2021-12-24 13:45:38,209: INFO/ForkPoolWorker-23] Task urlReq.news_data_get[ae6ce216-d9ba-44f3-8f9a-240252d4ca55] succeeded in 9.915284142000019s: None
+[2021-12-24 13:45:38,215: ERROR/ForkPoolWorker-23] Pool process <celery.concurrency.asynpool.Worker object at 0x7efff9490ba8> error: BrokenPipeError(32, 'Broken pipe')
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/pool.py", line 366, in workloop
+    put((READY, (job, i, result, inqW_fd)))
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/queues.py", line 366, in put
+    self.send_payload(ForkingPickler.dumps(obj))
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/queues.py", line 358, in send_payload
+    self._writer.send_bytes(value)
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 227, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 453, in _send_bytes
+    self._send(header + buf)
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 406, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/pool.py", line 292, in __call__
+    sys.exit(self.workloop(pid=pid))
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/pool.py", line 374, in workloop
+    put((READY, (job, i, (False, einfo), inqW_fd)))
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/queues.py", line 366, in put
+    self.send_payload(ForkingPickler.dumps(obj))
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/queues.py", line 358, in send_payload
+    self._writer.send_bytes(value)
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 227, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 453, in _send_bytes
+    self._send(header + buf)
+  File "/home/kim/.local/lib/python3.6/site-packages/billiard/connection.py", line 406, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe

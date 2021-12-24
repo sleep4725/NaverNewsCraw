@@ -1,7 +1,8 @@
+#!/usr/bin/python3
 import requests
 import os
 import sys
-sys.path.append(os.environ.get("PROJ_ROOT"))
+sys.path.insert(0, os.environ.get("PROJ_ROOT"))
 from bs4 import BeautifulSoup
 from celery import Celery 
 

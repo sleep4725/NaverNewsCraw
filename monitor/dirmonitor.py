@@ -1,10 +1,11 @@
+#!/usr/bin/python3
 import os
 import sys
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-sys.path.insert(1, os.environ.get("PROJ_ROOT"))
+sys.path.insert(0, os.environ.get("PROJ_ROOT"))
 from urlReq import news_data_get
 
 ## ===================
@@ -35,7 +36,8 @@ class Handler(FileSystemEventHandler):
     
     @staticmethod
     def on_created(event): #파일, 디렉터리가 생성되면 실행
-        filepath = event.src_path        
+        filepath = event.src_path   
+        print("데이터 처리 진행 ... {}".format(filepath))
         news_data_get.delay(filepath)
 
 

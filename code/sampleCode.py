@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 import unicodedata
 import re
 
-sys.path.append(os.environ.get("PROJ_ROOT"))
+sys.path.insert(0, os.environ.get("PROJ_ROOT"))
+
 from es.client import ES
 from common.urlheader import UrlHeader
 from nature_analyzer.nature import Nature
@@ -23,7 +24,6 @@ class Code(UrlHeader):
                  article_category_lv2_eng: None,
                  article_category_lv1_kor: None,
                  article_category_lv2_kor: None):
-
         UrlHeader.__init__(self)
         self._url = url
         # ==================
@@ -41,7 +41,6 @@ class Code(UrlHeader):
             "url": self._url # 요청 url
         }
         self._es_client = ES.ret_es_client()
-        self.nature_object = Nature()
 
 
     def article_body_parcing(self, article_body):
@@ -57,7 +56,8 @@ class Code(UrlHeader):
                 
         #self.data["article_content"] = str(article_body.text).replace("\n\n\n\n\n// flash", "").replace("\nfunction _flash_removeCallback() {}\n\n", " ").strip()
         self.data["article_content"] = article_content 
-        self.data["nng_list"].extend(self.nature_object.get_nng(plain_text= self.data["article_content"]))
+        nature_object = Nature(plaintext=self.data["article_content"])
+        self.data["nng_list"].extend(nature_object.get_nng())
 
 
     def article_header_parcing(self, article_header)-> dict:
@@ -75,6 +75,11 @@ class Code(UrlHeader):
             if press_logo.find("a").find("img"):
                 newspaper_name = press_logo.select_one("a > img").attrs["title"]
                 self.data["newspaper_name"] = newspaper_name
+            else:
+                print("not find img a_tag")
+        else:
+            print("not find div.press_logo")
+        
 
         # ==============================
         # 뉴스 기사 타이틀 및 기사 발행 시각
@@ -84,6 +89,8 @@ class Code(UrlHeader):
             if article_info.find("h3", {"id": "articleTitle"}):
                 article_title = article_info.select_one("h3#articleTitle")
                 self.data["article_title"] = article_title.string
+            else:
+                print("not find h3#id_articleTitle")
 
             if article_info.find("div", {"class": "sponsor"}).find_next("span", {"class": "t11"}):
                 article_t11 = article_info.select_one("div.sponsor > span.t11")
@@ -98,6 +105,8 @@ class Code(UrlHeader):
                     
                     article_t11 = f"{time_string[0]} {hour}:{minute}"
                     self.data["publish_date"] = article_t11
+        else:
+            print("not find div.article_info tag")
 
         return self.data
 
@@ -106,20 +115,34 @@ class Code(UrlHeader):
 
         :return:
         """
-        resp = requests.get(self._url, headers = self._headers)
+        resp = requests.get(self._url, headers = self.headers)
         if resp.status_code == 200:
+            print("응답 코드 200 입니다.")
             bs_object = BeautifulSoup(resp.text, "html.parser")
 
             if bs_object.find("td", {"class": "content"}):
+                print("td content exists")
                 td_content = bs_object.select_one("td.content")
                 if td_content.find("div", {"class": "article_header"}):
+                    print("div article_header exists")
                     article_header = td_content.select_one("div.article_header")
                     self.article_header_parcing(article_header= article_header)
+                else:
+                    print("not tag article_header")
+
                 if td_content.find("div", {"id": "articleBody"}):
                     article_body = td_content.select_one("div#articleBody")
                     if article_body.find("div", {"id": "articleBodyContents"}):
                         article_body_contents = article_body.select_one("div#articleBodyContents")
                         self.article_body_parcing(article_body=article_body_contents)
+                else:
+                    print("not tag articleBody")
+            else:
+                print("not td content")
+        else:
+            print("요청 에러")
+        
+        print(self.data)
 
     def data_check(self):
         """
@@ -133,4 +156,8 @@ class Code(UrlHeader):
             self._es_client.transport.close()
         except:
             pass
+
+#if __name__ == "__main__":
+#    o = Code(url="https://news.naver.com/main/read.naver?mode=LS2D&mid=shm&sid1=101&sid2=259&oid=015&aid=0004644329")
+#    o.get_news_data()
 
